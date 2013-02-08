@@ -26,6 +26,7 @@ configure do
 end
 
 get '/' do
+  @hostname = request.env['HTTP_HOST']
   slim :index
 end
 

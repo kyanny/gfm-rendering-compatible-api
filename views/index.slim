@@ -1,30 +1,100 @@
 doctype html
 html
   head
+    link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"
     title We <3 morygonzalez
+    script src="http://code.jquery.com/jquery-1.9.1.min.js"
   body
-    h1
-      a href="http://developer.github.com/v3/markdown/" Markdown Rendering API 
-      | compatible API for 
-      a href="http://emoine-kentaro.sqale.jp/" emoine
-    h2 SYNOPSIS
-    div
-      h3 Render an arbitrary Markdown document
-      pre POST /markdown
-      h4 Input
-      p <code>text</code> <em>Required</em> string
-      pre {
-      pre   "text":"**cool**"
-      pre }
-      h4 Response
-      pre &lt;p&gt;&lt;strong&gt;cool&lt;/strong&gt;&lt;/p&gt;
+    div.container
+      h1
+        | GitHub's 
+        a href="http://developer.github.com/v3/markdown/" Markdown Rendering API
+        br
+        | compatible API for 
+        a href="http://emoine-kentaro.sqale.jp/" emoine
 
-      h3 Render a Markdown document in raw mode
-      pre POST /markdown/raw
-      h4 Input
-      p <em>Required</em> POSTDATA markdown string
-      pre $ curl -d '**cool**' http://gfm-kyanny.sqale.jp/markdown/raw
-      h4 Response
-      pre &lt;p&gt;&lt;strong&gt;cool&lt;/strong&gt;&lt;/p&gt;
+      ul
+        li: a href="#markdown" Render an arbitrary Markdown document
+        li: a href="#raw" Render a Markdown document in raw mode
+        li: a href="#demo" Demo
+      hr
 
-    p Powered by Sinatra, Slim, HTML Pipeline; Hosted by Sqale
+      h2 SYNOPSIS
+      div
+        h3: a name="markdown" Render an arbitrary Markdown document
+        pre POST /markdown
+        h4 Input
+        p <code>text</code> <em>Required</em>
+        pre $ curl -d '{ "text":"**cool**" }' http://#{@hostname}/markdown
+
+        h4 Response
+        pre &lt;p&gt;&lt;strong&gt;cool&lt;/strong&gt;&lt;/p&gt;
+
+        h3: a name="raw" Render a Markdown document in raw mode
+        pre POST /markdown/raw
+        h4 Input
+        p <code>POSTDATA</code> <em>Required</em>
+        pre $ curl -d '**cool**' http://#{@hostname}/markdown/raw
+
+        h4 Response
+        pre &lt;p&gt;&lt;strong&gt;cool&lt;/strong&gt;&lt;/p&gt;
+      
+      hr
+
+      h2: a name="demo" Demo
+      pre $.ajax({ "type":"POST", "url":"http://#{@hostname}/markdown/raw", "data":"**cool**", "success":callback })
+      button#fire Demo
+      span#progress &nbsp;
+
+      javascript:
+        $(function(){
+        $('#fire').click(function(){
+        $('#progress').text('Processing...');
+        $.ajax({
+        "type":"POST",
+        "url":"http://#{@hostname}/markdown/raw",
+        "data":"**cool**",
+        "success":function(res){
+        alert(res);
+        $('#progress').text('');
+        }
+        });
+        });
+        });
+
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+      br
+
+      hr
+      p
+        | Powered by 
+        a href="http://www.sinatrarb.com/" Sinatra
+        |, 
+        a href="http://slim-lang.com/" Slim
+        |, 
+        a href="https://github.com/jch/html-pipeline" HTML Pipeline
+        |; Hosted by 
+        a href="http://sqale.jp/" Sqale
