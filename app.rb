@@ -16,7 +16,6 @@ def markdown_to_html(markdown)
       HTML::Pipeline::HttpsFilter,
       HTML::Pipeline::MentionFilter,
       HTML::Pipeline::EmojiFilter,
-      HTML::Pipeline::SyntaxHighlightFilter
     ], context)
   result = pipeline.call(markdown)[:output].to_s
 end
