@@ -17,10 +17,10 @@ get '/' do
 end
 
 post '/markdown' do
-  json_data = JSON.parse(request.env['rack.input'].read)
-  GitHub::Markdown.render json_data['text']
+  json_data = JSON.parse(request.body.read)
+  GitHub::Markdown.render(json_data['text']).chomp
 end
 
 post '/markdown/raw' do
-  GitHub::Markdown.render request.env['rack.input'].read
+  GitHub::Markdown.render(request.body.read).chomp
 end
