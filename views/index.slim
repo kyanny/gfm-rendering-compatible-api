@@ -4,6 +4,7 @@ html
     link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet"
     title GitHub's Markdown Rendering API compatible API
     script src="http://code.jquery.com/jquery-1.9.1.min.js"
+    script src="/js/demo.js"
   body
     div.container
       h1
@@ -42,24 +43,22 @@ html
 
       h2: a name="demo" Demo
       pre $.ajax({ "type":"POST", "url":"http://#{@hostname}/markdown/raw", "data":"**cool**", "success":callback })
-      button#fire Demo
-      span#progress &nbsp;
+      div.row.show-grid
+        div.span6
+          | Markdown input
+          textarea id="input" style="width:370px" rows="10"
+            | **cool**
 
-      javascript:
-        $(function(){
-        $('#fire').click(function(){
-        $('#progress').text('Processing...');
-        $.ajax({
-        "type":"POST",
-        "url":"http://#{@hostname}/markdown/raw",
-        "data":"**cool**",
-        "success":function(res){
-        alert(res);
-        $('#progress').text('');
-        }
-        });
-        });
-        });
+        div.span6
+          | HTML output
+          textarea id="output" style="width:370px" rows="10"
+
+      br
+      button#fire Convert Markdown to HTML
+      span &nbsp;
+      span#progress &nbsp;
+      input id="hostname" type="hidden" value="#{@hostname}"
+
 
       br
       br
