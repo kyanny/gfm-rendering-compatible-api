@@ -2,6 +2,6 @@ source :rubygems
 
 gem 'sinatra'
 gem 'json'
-gem 'html-pipeline'
+gem 'github-markdown'
 gem 'slim'
 gem 'newrelic_rpm'
