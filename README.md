@@ -1,4 +1,4 @@
-# GitHub's [Markdown Rendering API](http://developer.github.com/v3/markdown/) compatible API for [emoine](http://emoine-kentaro.sqale.jp/)
+# GitHub's [Markdown Rendering API](http://developer.github.com/v3/markdown/) compatible API
 
 * Render an arbitrary Markdown document
 * Render a Markdown document in raw mode
