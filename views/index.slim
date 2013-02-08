@@ -1,0 +1,30 @@
+doctype html
+html
+  head
+    title We <3 morygonzalez
+  body
+    h1
+      a href="http://developer.github.com/v3/markdown/" Markdown Rendering API 
+      | compatible API for 
+      a href="http://emoine-kentaro.sqale.jp/" emoine
+    h2 SYNOPSIS
+    div
+      h3 Render an arbitrary Markdown document
+      pre POST /markdown
+      h4 Input
+      p <code>text</code> <em>Required</em> string
+      pre {
+      pre   "text":"**cool**"
+      pre }
+      h4 Response
+      pre &lt;p&gt;&lt;strong&gt;cool&lt;/strong&gt;&lt;/p&gt;
+
+      h3 Render a Markdown document in raw mode
+      pre POST /markdown/raw
+      h4 Input
+      p <em>Required</em> POSTDATA markdown string
+      pre $ curl -d '**cool**' http://gfm-kyanny.sqale.jp/markdown/raw
+      h4 Response
+      pre &lt;p&gt;&lt;strong&gt;cool&lt;/strong&gt;&lt;/p&gt;
+
+    p Powered by Sinatra, Slim, HTML Pipeline; Hosted by Sqale
