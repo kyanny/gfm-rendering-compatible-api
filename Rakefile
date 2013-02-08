@@ -13,7 +13,7 @@ namespace :td do
       f = gz.sub(/\.gz$/, '')
       system("cp #{latest_access_log_gz} #{home}/tmp/#{gz}")
       system("gunzip -f #{home}/tmp/#{gz}")
-      system("ruby -anle 'puts $F[1..-1].join(" ")' < #{home}/tmp/#{f} > #{home}/tmp/td.log") # remote preceding $host field
+      system("ruby -anle 'puts $F[1..-1].join(\" \")' < #{home}/tmp/#{f} > #{home}/tmp/td.log") # remote preceding $host field
       system("bundle exec td table:import gfm www_access #{home}/tmp/td.log")
     end
   end
