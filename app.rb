@@ -3,6 +3,10 @@ require 'json'
 require 'html/pipeline'
 require 'slim'
 
+if ENV['RACK_ENV'] == 'production'
+  require 'newrelic_rpm'
+end
+
 def markdown_to_html(markdown)
   context = {
     asset_root: "http://assets.github.com/images/icons/",
