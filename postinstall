@@ -1,0 +1,4 @@
+#!/bin/sh
+
+cd $HOME/current
+bundle exec whenever --update-crontab
