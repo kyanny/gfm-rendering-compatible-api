@@ -1,8 +1,4 @@
-require './app'
-require 'rspec'
-require 'rack/test'
-
-set :environment, :test
+require 'spec_helper'
 
 describe 'GFM API App' do
   include Rack::Test::Methods
