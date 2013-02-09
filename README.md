@@ -1,6 +1,6 @@
 # GitHub's [Markdown Rendering API](http://developer.github.com/v3/markdown/) compatible API
 
-[![Build Status](https://travis-ci.org/kyanny/gfm-rendering-compatible-api.png?branch=master)](https://travis-ci.org/kyanny/gfm-rendering-compatible-api)
+[![Build Status](https://travis-ci.org/kyanny/gfm-rendering-compatible-api.png?branch=master)](https://travis-ci.org/kyanny/gfm-rendering-compatible-api) [![Dependency Status](https://gemnasium.com/kyanny/gfm-rendering-compatible-api.png)](https://gemnasium.com/kyanny/gfm-rendering-compatible-api)
 
 * Render an arbitrary Markdown document
 * Render a Markdown document in raw mode
