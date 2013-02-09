@@ -4,5 +4,4 @@ require 'rack/test'
 set :environment, :test
 
 RSpec.configure do |config|
-
 end
