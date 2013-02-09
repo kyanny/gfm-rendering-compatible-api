@@ -9,6 +9,8 @@ gem 'rspec'
 gem 'td'
 gem 'rake'
 gem 'whenever', require: false
+gem 'pygments.rb'
+gem 'nokogiri'
 
 group :test do
   gem 'rack-test'
