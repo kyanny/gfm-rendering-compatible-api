@@ -27,6 +27,11 @@ describe 'GFM API App' do
     end
   end
 
+  it "The response of POST /markdown includes Access-Control-Allow-Origin header" do
+    post '/markdown', '{"text":"**cool**"}'
+    expect(last_response.headers).to include("Access-Control-Allow-Origin" => "*")
+  end
+
   it "POST /markdown/raw returns HTML" do
     post '/markdown/raw', '**cool**'
     expect(last_response).to be_ok
@@ -39,5 +44,10 @@ describe 'GFM API App' do
       expect(last_response).to be_ok
       expect(last_response.body).to match(/<div class="highlight">/)
     end
+  end
+
+  it "The response of POST /markdown/raw includes Access-Control-Allow-Origin header" do
+    post '/markdown/raw', '**cool**'
+    expect(last_response.headers).to include("Access-Control-Allow-Origin" => "*")
   end
 end

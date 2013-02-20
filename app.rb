@@ -18,12 +18,14 @@ get '/' do
 end
 
 post '/markdown' do
+  headers "Access-Control-Allow-Origin" => "*"
   json_data = JSON.parse(request.body.read)
   text = GitHub::Markdown.render(json_data['text']).chomp
   syntax_highlight(text)
 end
 
 post '/markdown/raw' do
+  headers "Access-Control-Allow-Origin" => "*"
   text = GitHub::Markdown.render(request.body.read).chomp
   syntax_highlight(text)
 end
