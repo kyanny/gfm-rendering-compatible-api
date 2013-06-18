@@ -9,7 +9,7 @@ namespace :coffee do
   end
 end
 
-task :default => :spec
+task :default => ["coffee:compile", :spec]
 
 namespace :td do
   desc 'Treasure Data One-Time import (/var/log/httpd/access.log)'
