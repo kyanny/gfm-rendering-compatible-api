@@ -1,6 +1,14 @@
 require "rspec/core/rake_task"
 
 RSpec::Core::RakeTask.new("spec")
+
+namespace :coffee do
+  desc 'compile *.coffee'
+  task :compile do
+    sh 'coffee -c public/js/*.coffee'
+  end
+end
+
 task :default => :spec
 
 namespace :td do
