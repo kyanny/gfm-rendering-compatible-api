@@ -1,7 +1,15 @@
 require "rspec/core/rake_task"
 
 RSpec::Core::RakeTask.new("spec")
-task :default => :spec
+
+namespace :coffee do
+  desc 'compile *.coffee'
+  task :compile do
+    sh 'coffee -c public/js/*.coffee'
+  end
+end
+
+task :default => ["coffee:compile", :spec]
 
 namespace :td do
   desc 'Treasure Data One-Time import (/var/log/httpd/access.log)'
